@@ -12,10 +12,9 @@
 
     <!-- 事件调用 -->
     <div id = "app">
-        {{message}}
-        </br>
-        {{message.toUpperCase()}}
-        <p>{{socre<60?'不及格':'及格'}}</p>
+        <a v-bind:href="url">百度</a>
+        <br>
+        <button v-on:click="Confirm">确认一下</button>
     </div>
 
     <!-- 创建vue实例 -->
@@ -25,12 +24,17 @@
             el:'#app',
             // data是vue的一个属性，用来存储数据
             data:{
-                message:'hello vue' ,
-                socre:59
+                return:{
+                    url:'https://www.baidu.com'
+                }
             },
             methods:{
-                toUpperCase(){
-                    return this.message.toUpperCase()
+                Confirm(){
+                    if (window.confirm('确认要来学习吗？')){
+                        window.location.href = 'https://www.baidu.com'
+                    }else{
+                        alert('再见')
+                    }
                 }
             }
         })
